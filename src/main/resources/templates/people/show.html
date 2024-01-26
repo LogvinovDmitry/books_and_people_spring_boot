@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>wwww</title>
+</head>
+
+<body>
+
+<p><span style="font-style: italic;">ID:</span> <span th:text="${person.getId()}">VALUE</span></p>
+<p><span style="font-style: italic;">ФИО:</span> <span style="font-weight: bold; text-decoration: underline;" th:text="${person.getName()}">VALUE</span></p>
+<p><span style="font-style: italic;">Возраст:</span> <span th:text="${person.getAge()}">VALUE</span></p>
+<p><span style="font-style: italic;">Email:</span> <span th:text="${person.getEmail()}">VALUE</span></p>
+<p><span style="font-style: italic;">Адрес:</span> <span th:text="${person.getAddress()}">VALUE</span></p>
+
+<hr/>
+
+<div th:if="${booksByPersonId.isEmpty()}">
+    <span style="font-weight: bold; font-size: 1.2em;">Этот человек пока не взял ни одной книги</span>
+</div>
+
+<div th:if="${!booksByPersonId.isEmpty()}">
+    <p style="font-weight: bold; font-size: 1.2em;">У этого челвека находятся следующие книги:</p>
+
+    <div th:each="book : ${booksByPersonId}">
+
+<!--        <div style="color:red" th:if="${#fields.hasErrors('publicationYear')}" th:errors="*{publicationYear}">PublicationYear error</div>-->
+<!--        <span th:text="${book.getName()}">user</span>-->
+
+
+        <span th:text="${book.getName()}" th:style="${book.isDifferenceGreaterThan10Days() ? 'color: red;' : ''}">user</span>
+
+
+    </div>
+</div>
+
+<br/>
+<hr/>
+<!--<a th:href="@{/people/{id}/edit(id=${person.getId()})}">Edit</a>-->
+
+<form th:method="GET" th:action="@{/people/{id}/edit(id=${person.getId()})}">
+
+    <input type="submit" value="Редактировать данные человека"/>
+</form>
+
+<form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
+
+    <input type="submit" value="Удалить этого человека"/>
+</form>
+
+
+</body>
+
+</html>

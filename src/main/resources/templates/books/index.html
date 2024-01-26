@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>uuuu</title>
+</head>
+
+<body>
+
+
+<div th:each="book : ${books}">
+    <a th:href="@{/books/{id}(id=${book.getId()})}" th:text="${book.getName()}">user</a>
+    год издания: <span th:text="${book.getPublicationYear()}"></span>
+</div>
+
+<br/>
+<hr/>
+<a href="/books/new">Создать новую книгу</a>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<hr/>
+<hr/>
+<hr/>
+<a href="/people">Перейти на страницу со списком зарегистрированных людей</a>
+
+
+</body>
+
+</html>

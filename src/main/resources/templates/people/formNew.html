@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>fdfdd</title>
+</head>
+
+<body>
+
+
+
+<form th:method="post" th:action="@{/people}" th:object="${person}">
+    <label for="name">Enter name</label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+    <br/>
+    <label for="age">Enter age</label>
+    <input type="text" th:field="*{age}" id="age"/>
+    <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</div>
+    <br/>
+    <label for="email">Enter email</label>
+    <input type="text" th:field="*{email}" id="email"/>
+    <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</div>
+    <br/>
+    <label for="address">Enter address</label>
+    <input type="text" th:field="*{address}" id="address"/>
+    <div style="color:red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address error</div>
+    <br/>
+    <label for="dataBirthDay">Enter data Birth Day "25/11/2020"</label>
+    <input type="text" th:field="*{dataBirthDay}" id="dataBirthDay"/>
+    <div style="color:red" th:if="${#fields.hasErrors('dataBirthDay')}" th:errors="*{dataBirthDay}">dataBirthDay error</div>
+    <br/>
+    <input type="submit" value="Создать" />
+</form>
+
+</body>
+
+</html>

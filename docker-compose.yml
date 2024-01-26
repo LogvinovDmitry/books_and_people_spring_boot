@@ -1,0 +1,28 @@
+#version: '3.5'
+#services:
+#  database:
+#    image: mysql:8.0
+#    restart: always
+#    container_name: springMVC-CRUD
+#    environment:
+#      MYSQL_ROOT_PASSWORD: "12341234"
+#      MYSQL_USER: "docuser"
+#     MYSQL_PASSWORD: "pass12341234"
+#      MYSQL_DATABASE: "springmvc_crud"
+#    ports:
+#      - "3307:3306"
+
+
+version: "3.5"
+services:
+  db:
+    image: postgres:13-alpine
+    restart: always
+    container_name: books_and_people_spring_boot_db
+    environment:
+      POSTGRES_USER: "springboot_user"
+      POSTGRES_PASSWORD: "password123"
+      POSTGRES_DB: "books_and_people_spring_boot_database"
+      #POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - "5440:5432"
